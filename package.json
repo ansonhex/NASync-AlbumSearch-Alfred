@@ -13,6 +13,7 @@
   "dependencies": {
     "alfy": "^2.0.0",
     "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
     "lodash.debounce": "^4.0.8",
     "sharp": "^0.33.4"
   }

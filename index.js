@@ -6,13 +6,14 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import https from 'https';
 import debounce from 'lodash.debounce';
+import 'dotenv/config';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const ip = "192.168.1.155";
-const port = "1222";
-const token = "C3E30353F4CA49A2821C2177BBCF7497";
+const ip = process.env.IP;
+const port = process.env.PORT;
+const token = process.env.TOKEN;
 const postUrl = `https://${ip}:${port}/ugreen/v1/photo/image/search/cate?token=${token}`;
 const thumbsDir = path.resolve(__dirname, 'thumbs');
 
@@ -94,7 +95,7 @@ const saveImage = async (url, id) => {
 // Function to process search requests
 const processSearch = async (searchTerm) => {
     if (!searchTerm.endsWith(specialChar)) {
-        alfy.output([{
+        return alfy.output([{
             title: "Add '!' after the search term to start searching",
             subtitle: "e.g., ugreen!",
             valid: false,
@@ -102,7 +103,6 @@ const processSearch = async (searchTerm) => {
                 path: "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertStopIcon.icns"
             }
         }]);
-        return;
     }
 
     const cleanSearchTerm = searchTerm.slice(0, -1);
