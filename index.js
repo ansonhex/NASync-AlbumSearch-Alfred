@@ -152,6 +152,6 @@ const processSearch = async (searchTerm) => {
 };
 
 // Capture input and apply debounce
-const debouncedProcessSearch = debounce(processSearch, 500);
+const debouncedProcessSearch = debounce(processSearch, 100);
 
 debouncedProcessSearch(alfy.input);
