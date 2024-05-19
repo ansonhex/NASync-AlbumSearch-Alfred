@@ -1,0 +1,19 @@
+{
+  "name": "user.workflow.5d26295d-bceb-4c34-8855-0fc59d2c2200",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "alfy": "^2.0.0",
+    "axios": "^1.6.8",
+    "lodash.debounce": "^4.0.8",
+    "sharp": "^0.33.4"
+  }
+}
