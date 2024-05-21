@@ -22,7 +22,7 @@ $ npm install
 
 3. Create `.env` file under the same directory:
 
-```s
+```
 IP={Your NASync IP}
 PORT={Your NASync Web Portal IP}
 TOKEN={Your NASync API Token}
