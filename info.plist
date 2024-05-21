@@ -50,11 +50,11 @@
 				<key>keyword</key>
 				<string>nas</string>
 				<key>queuedelaycustom</key>
-				<integer>3</integer>
+				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>
 				<false/>
 				<key>queuedelaymode</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>queuemode</key>
 				<integer>2</integer>
 				<key>runningsubtext</key>
