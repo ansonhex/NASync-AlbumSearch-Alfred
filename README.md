@@ -24,7 +24,7 @@ $ npm install
 
 ```s
 IP={Your NASync IP}
-PORT={Your NASync Web Portal IP}
+PORT={Your NASync Web Portal Port}
 TOKEN={Your NASync API Token}
 ```
 
