@@ -1,9 +1,11 @@
 # NASync-AlbumSearch-Alfred
 
 > ONLY TESTED FOR PERSONAL USE!
+> System: 1.0.0.1895 / Album: 1.0.0.0695
 
 ## Hardware
 
+- UGREEN NASync DXP480T Plus
 - UGREEN NASync DXP4800 Plus
 
 ![demo](https://raw.githubusercontent.com/ansonhe97/NASync-AlbumSearch-Alfred/master/assets/nasync.gif)

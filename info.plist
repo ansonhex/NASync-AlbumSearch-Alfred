@@ -4,15 +4,13 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.alfredapp.ansonhe</string>
-	<key>category</key>
-	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>81F769A5-79EB-465F-AF1F-F556C55B38D5</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>EFB2DE3A-DA87-4022-8426-DB3A7802B04B</string>
+				<string>C01502B8-0CE2-41C1-B592-1B58A2564F9E</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -84,32 +82,60 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>skipqueryencode</key>
+				<key>concurrently</key>
 				<false/>
-				<key>skipvarencode</key>
-				<false/>
-				<key>spaces</key>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>query=$1
+
+TEMP_DIR="/tmp/preview_images"
+mkdir -p "$TEMP_DIR"
+TEMP_FILE="$TEMP_DIR/temp_image_$(date +%s).heic"
+
+curl -s -k "$query" -o "$TEMP_FILE"
+
+if [ $? -eq 0 ] &amp;&amp; [ -f "$TEMP_FILE" ]; then
+    open -a Preview "$TEMP_FILE"
+    
+    osascript &lt;&lt;EOF
+    delay 0.5
+    tell application "Preview"
+        activate
+    end tell
+EOF
+    
+    sleep 3
+    rm "$TEMP_FILE"
+else
+    osascript -e 'display notification "Failed to download image" with title "Error"'
+fi
+
+rmdir "$TEMP_DIR" 2&gt;/dev/null</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
 				<string></string>
-				<key>url</key>
-				<string>{query}</string>
+				<key>type</key>
+				<integer>11</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>EFB2DE3A-DA87-4022-8426-DB3A7802B04B</string>
+			<string>C01502B8-0CE2-41C1-B592-1B58A2564F9E</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</array>
 	<key>readme</key>
 	<string># NASync-AlbumSearch-Alfred
 
 &gt; ONLY TESTED FOR PERSONAL USE!
+&gt; System: 1.0.0.1895 / Album: 1.0.0.0695
 
 ## Hardware
 
+- UGREEN NASync DXP480T Plus
 - UGREEN NASync DXP4800 Plus
 
 ![demo](https://raw.githubusercontent.com/ansonhe97/NASync-AlbumSearch-Alfred/master/assets/nasync.gif)
@@ -130,7 +156,7 @@ $ npm install
 
 ```s
 IP={Your NASync IP}
-PORT={Your NASync Web Portal IP}
+PORT={Your NASync Web Portal Port}
 TOKEN={Your NASync API Token}
 ```
 
@@ -142,16 +168,16 @@ TOKEN={Your NASync API Token}
 		<key>81F769A5-79EB-465F-AF1F-F556C55B38D5</key>
 		<dict>
 			<key>xpos</key>
-			<real>135</real>
+			<real>95</real>
 			<key>ypos</key>
-			<real>145</real>
+			<real>150</real>
 		</dict>
-		<key>EFB2DE3A-DA87-4022-8426-DB3A7802B04B</key>
+		<key>C01502B8-0CE2-41C1-B592-1B58A2564F9E</key>
 		<dict>
 			<key>xpos</key>
-			<real>295</real>
+			<real>315</real>
 			<key>ypos</key>
-			<real>145</real>
+			<real>150</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -159,7 +185,7 @@ TOKEN={Your NASync API Token}
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>0.0.1</string>
+	<string>0.0.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/ansonhe</string>
 </dict>

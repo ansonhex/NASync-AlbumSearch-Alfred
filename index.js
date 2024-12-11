@@ -56,7 +56,7 @@ const searchImages = async (term) => {
                 if (item.ocr_list) {
                     for (const ocr of item.ocr_list) {
                         const imageUrl = `https://${ip}:${port}/ugreen/v1/photo/streamById?token=${token}&id=${ocr.id}&file_type=1&size_type=2`;
-                        const downloadUrl = `https://${ip}:${port}/ugreen/v1/filemgr/downloadFile?paths=${encodeURIComponent(ocr.file_path)}&intranet_share_id=5&token=${token}`;
+                        const downloadUrl = `https://${ip}:${port}/ugreen/v1/photo/image/download?id=${ocr.id}&token=${token}`;
                         imageInfos.push({ imageUrl, downloadUrl });
                     }
                 }
