@@ -1,6 +1,7 @@
 # NASync-AlbumSearch-Alfred
 
 > ONLY TESTED FOR PERSONAL USE!
+
 > System: 1.0.0.1895 / Album: 1.0.0.0695
 
 ## Hardware
